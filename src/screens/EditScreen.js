@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native'
 
-const EditScreen = () => {
+const EditScreen = ({ navigation }) => {
   return (
-    <Text>Edit Screen</Text>
+    <Text>Edit Screen - {navigation.getParam('id')}</Text>
   )
 }
 
