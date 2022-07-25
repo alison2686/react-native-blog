@@ -8,6 +8,15 @@ const IndexScreen = ({navigation}) => {
 
   useEffect(() => {
     getBlogPosts()
+     // anytime we return to this screen, run getBlogPosts again
+    const listener = navigation.addListener('didFocus', () => {
+      getBlogPosts()
+    })
+    // cleanup component if screen is not visible
+    return () => {
+      listener.remove()
+    }
+
   }, [])
 
   return (
