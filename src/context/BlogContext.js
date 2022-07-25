@@ -12,7 +12,7 @@ const blogReducer = (state, action) => {
                     : blogPost
             })
         case 'delete_blogpost':
-            return state.filter(blogPost => blogPost.id !== action.payload )
+            return state.filter(blogPost => blogPost.id !== action.payload)
         default:
             return state
     }
@@ -40,7 +40,8 @@ const addBlogPost = dispatch => {
 const deleteBlogPost = dispatch => {
     return async id => {
         await jsonServer.delete(`/blogposts/${id}`)
-        // dispatch({ type: 'delete_blogpost', payload: id })
+        
+        dispatch({ type: 'delete_blogpost', payload: id })
     }
 }
 
